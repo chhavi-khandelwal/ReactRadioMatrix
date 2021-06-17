@@ -18,3 +18,13 @@ Radio matrix with rows X columns
 - Jest (Test runner)
 - React Testing Library (Testing)
 - React Transition Group (Animation)
+
+## How to run
+
+yarn install;
+yarn build;
+yarn start
+
+## Tests
+
+yarn test
