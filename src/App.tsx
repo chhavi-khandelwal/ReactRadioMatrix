@@ -1,5 +1,5 @@
 import './App.css';
-import RadioMatrix from 'Containers/RadioMatrix';
+import RadioMatrix from 'containers/RadioMatrix';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'theme';
 

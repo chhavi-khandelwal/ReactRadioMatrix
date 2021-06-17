@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { ReactComponent as Delete } from 'assets/images/delete.svg';
 import { useStore } from 'store/store';
 import { Row, Column as ColumnType, Remove } from 'store/matrix.types';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { TransitionGroup } from 'react-transition-group';
 import Column from './Column';
+import { Styler } from 'assets/styles/Styled';
 
 interface Props {
   row: Row;
@@ -24,6 +25,7 @@ function RowComp({ row, index }: Props) {
           type="button"
           onClick={() => removeRow(row.id, !!row.image, row.name?.length)}
           title="Delete Row"
+          data-testid={`delete-row${row.id}`}
         >
           <Delete width={16} height={16} />
         </Styled.RowDelete>
@@ -31,7 +33,7 @@ function RowComp({ row, index }: Props) {
       <TransitionGroup component={null}>
         {columns.map((column) => {
           return (
-            <Styled.CSSTransition
+            <Styler.CSSTransition
               timeout={350}
               classNames="box"
               key={`column-${column.id}`}
@@ -42,7 +44,7 @@ function RowComp({ row, index }: Props) {
               <div>
                 <Column row={row} column={column} />
               </div>
-            </Styled.CSSTransition>
+            </Styler.CSSTransition>
           );
         })}
       </TransitionGroup>
@@ -58,24 +60,6 @@ const Styled = {
     position: relative;
     padding-right: ${(props) => props.theme.spacings.s};
   `,
-  CSSTransition: styled(CSSTransition)<{ delay: number; spacing?: boolean }>`
-    transition: opacity 300ms ease-in-out ${(props) => props.delay}s;
-    margin-left: ${(props) =>
-      props.spacing ? `-${props.theme.spacings.xl}` : 0};
-
-    &.box-enter {
-      opacity: 0;
-    }
-    &.box-enter-active {
-      opacity: 1;
-    }
-    &.box-exit {
-      opacity: 0;
-    }
-    &.box-exit-active {
-      opacity: 0.8;
-    }
-  `,
   RowDelete: styled.button`
     width: 50px;
     height: 50px;
@@ -88,6 +72,7 @@ const Styled = {
     position: absolute;
     left: -50px;
     top: 5px;
+    cursor: pointer;
   `,
 };
 

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useStore } from 'store/store';
 import { Row, Column as ColumnType } from 'store/matrix.types';
+import { Styler } from 'assets/styles/Styled';
 
 function Stats() {
   const rows: Row[] = useStore<Row[]>((state) => state.rows);
@@ -11,7 +12,7 @@ function Stats() {
   const imagesLength = useStore((state) => state.imagesLength);
 
   return (
-    <Styled.FlexColStart>
+    <Styler.FlexColStart>
       <Styled.Stats>
         <Styled.Info>No. of Rows: {rows.length - 1}</Styled.Info>
         <Styled.Info>No. of Columns: {columns.length - 1}</Styled.Info>
@@ -21,7 +22,7 @@ function Stats() {
         </Styled.Info>
         <Styled.Info>Shortest label: {nameLengthArr[0] || 0}</Styled.Info>
       </Styled.Stats>
-    </Styled.FlexColStart>
+    </Styler.FlexColStart>
   );
 }
 
@@ -43,12 +44,6 @@ const Styled = {
   `,
   Info: styled.span`
     margin-bottom: ${(props) => props.theme.spacings.m};
-  `,
-  FlexColStart: styled.div`
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
   `,
 };
 

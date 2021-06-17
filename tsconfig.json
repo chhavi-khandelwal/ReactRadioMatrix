@@ -24,7 +24,9 @@
     "sourceRoot": "/",
     "baseUrl": "./src",
     "downlevelIteration": true,
-    
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
   "include": [
     "**/*"

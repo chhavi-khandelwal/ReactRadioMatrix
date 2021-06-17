@@ -59,7 +59,7 @@ function BoxContent({ column, row }: Props) {
             alt={row.image}
           />
         </Styled.Button>
-        <Styled.InputLabelContainer spacing>
+        <Styled.InputLabelContainer spacing={1}>
           <InputLabel row={row} />
         </Styled.InputLabelContainer>
       </Styled.Flex>
@@ -77,7 +77,7 @@ function BoxContent({ column, row }: Props) {
             onChange={(e) => UploadImage(e, row, column)}
           />
         </Styled.Button>
-        <Styled.InputLabelContainer spacing={!!row.id}>
+        <Styled.InputLabelContainer spacing={row.id ? 1 : 0}>
           <InputLabel row={row} column={column} />
         </Styled.InputLabelContainer>
       </Styled.Flex>
@@ -120,7 +120,7 @@ const Styled = {
     top: 16px;
     right: 16px;
   `,
-  InputLabelContainer: styled.div<{ spacing?: boolean }>`
+  InputLabelContainer: styled.div<{ spacing?: number }>`
     margin-left: ${(props) => (props.spacing ? props.theme.spacings.s : 0)};
   `,
   Flex: styled.div<{ col?: boolean }>`
@@ -138,6 +138,7 @@ const Styled = {
     opacity: 0;
     width: 50px;
     height: 50px;
+    cursor: pointer;
   `,
   Button: styled.button`
     width: 50px;
@@ -150,6 +151,7 @@ const Styled = {
     border-radius: 10px;
     padding: 0;
     overflow: hidden;
+    cursor: pointer;
   `,
   DivNoBorder: styled.div`
     width: 50px;

@@ -22,6 +22,7 @@ function ColumnComp({ column, row }: Props) {
             removeColumn(column.id, !!column.image, column.name?.length)
           }
           title="Delete Column"
+          data-testid={`delete-col${column.id}`}
         >
           <Delete width={16} height={16} />
         </Styled.ColumnDelete>
@@ -45,6 +46,7 @@ const Styled = {
     left: 0px;
     top: -50px;
     position: absolute;
+    cursor: pointer;
   `,
   Column: styled.div`
     display: flex;

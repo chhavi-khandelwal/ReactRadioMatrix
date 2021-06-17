@@ -13,7 +13,7 @@ const store = (set: any) => ({
     { id: 1, name: 'col', image: null },
   ],
   imagesLength: 0,
-  nameLengthArr: [],
+  nameLengthArr: [NameLength, NameLength],
   addRow: () =>
     set((state: Store) => ({
       rows: [

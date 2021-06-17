@@ -16,7 +16,8 @@
     "zustand": "^3.5.2",
     "react-hook-form": "^6.12.2",
     "@hookform/error-message": "^0.0.5",
-    "react-transition-group": "^4.4.2"
+    "react-transition-group": "^4.4.2",
+    "ava": "^3.15.0"
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.4",

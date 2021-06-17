@@ -103,6 +103,11 @@ var Styled = {
     text-overflow: ellipsis;
     white-space: nowrap;
     text-align: ${(props) => (props.row ? 'left' : 'center')};
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.black20};
+      border-radius: 4px;
+    }
   `,
 };
 export default InputLabel;
