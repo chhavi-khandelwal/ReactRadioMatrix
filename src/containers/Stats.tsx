@@ -10,7 +10,7 @@ function Stats() {
   );
   const nameLengthArr = useStore((state) => state.nameLengthArr);
   const imagesLength = useStore((state) => state.imagesLength);
-
+  console.log(nameLengthArr);
   return (
     <Styler.FlexColStart>
       <Styled.Stats>

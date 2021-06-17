@@ -1,3 +1,4 @@
+import { compare } from 'utils/compare';
 import create from 'zustand';
 import { Store, Row, Column } from './matrix.types';
 
@@ -20,7 +21,7 @@ const store = (set: any) => ({
         ...state.rows,
         { id: state.rows[state.rows.length - 1].id + 1, name: 'row' },
       ],
-      nameLengthArr: [...state.nameLengthArr, NameLength].sort(),
+      nameLengthArr: [...state.nameLengthArr, NameLength].sort(compare),
     })),
   addColumn: () =>
     set((state: Store) => ({
@@ -28,7 +29,7 @@ const store = (set: any) => ({
         ...state.columns,
         { id: state.columns[state.columns.length - 1].id + 1, name: 'col' },
       ],
-      nameLengthArr: [...state.nameLengthArr, NameLength].sort(),
+      nameLengthArr: [...state.nameLengthArr, NameLength].sort(compare),
     })),
   updateRow: (row: Row, nameLength?: number) =>
     set((state: Store) => {
@@ -44,7 +45,7 @@ const store = (set: any) => ({
         rows: state.rows.map((r) => (r.id === row.id ? { ...r, ...row } : r)),
         imagesLength: row.image ? state.imagesLength + 1 : state.imagesLength,
         nameLengthArr: nameLength
-          ? [...state.nameLengthArr.sort()]
+          ? [...state.nameLengthArr.sort(compare)]
           : state.nameLengthArr,
       };
     }),
@@ -66,7 +67,7 @@ const store = (set: any) => ({
           ? state.imagesLength + 1
           : state.imagesLength,
         nameLengthArr: nameLength
-          ? [...state.nameLengthArr.sort()]
+          ? [...state.nameLengthArr.sort(compare)]
           : state.nameLengthArr,
       };
     }),

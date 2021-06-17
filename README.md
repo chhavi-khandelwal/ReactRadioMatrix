@@ -8,6 +8,7 @@ Radio matrix with rows X columns
 - add/remove columns
 - Upload Images
 - Show stats
+- Change names for rows/columns
 
 ## Tech Stack
 
